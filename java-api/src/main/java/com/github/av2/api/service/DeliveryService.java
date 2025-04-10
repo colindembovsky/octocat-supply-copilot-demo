@@ -17,15 +17,12 @@ import java.util.concurrent.TimeUnit;
 public class DeliveryService {
     private final List<Delivery> deliveries = new ArrayList<>();
 
-    @PostConstruct
-    public void init() {
-        // Initialize with seed data
-        deliveries.add(new Delivery(
-            1, 1, "pending", "2024-04-15", "Regular delivery"
-        ));
-        deliveries.add(new Delivery(
-            2, 2, "in-transit", "2024-04-16", "Express delivery"
-        ));
+    private final SeedData seedData;
+
+    @Autowired
+    public OrderService(SeedData seedData) {
+        this.seedData = seedData;
+        this.deliveries.addAll(seedData.getDeliveries());
     }
 
     public List<Delivery> findAll() {

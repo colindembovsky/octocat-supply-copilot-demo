@@ -1,8 +1,10 @@
-FROM eclipse-temurin:21-jdk-alpine as builder
+FROM maven:3.9-eclipse-temurin-21-alpine as builder
 
 WORKDIR /app
 COPY . .
-RUN ./mvnw clean package -DskipTests
+
+# Build using Maven from the official image
+RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine
 

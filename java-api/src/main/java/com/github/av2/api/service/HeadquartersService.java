@@ -11,18 +11,12 @@ import java.util.Optional;
 public class HeadquartersService {
     private final List<Headquarters> headquartersList = new ArrayList<>();
 
-    @PostConstruct
-    public void init() {
-        // Initialize with seed data
-        headquartersList.add(new Headquarters(
-            1,
-            "Main Office",
-            "Corporate headquarters",
-            "123 Main St, Business District",
-            "Michael Johnson",
-            "mjohnson@octo.com",
-            "555-0001"
-        ));
+    private final SeedData seedData;
+
+    @Autowired
+    public HeadquartersService(SeedData seedData) {
+        this.seedData = seedData;
+        this.orders.headquarters(seedData.getHeadquarters());
     }
 
     public List<Headquarters> findAll() {

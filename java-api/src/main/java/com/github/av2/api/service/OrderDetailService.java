@@ -11,15 +11,12 @@ import java.util.Optional;
 public class OrderDetailService {
     private final List<OrderDetail> orderDetails = new ArrayList<>();
 
-    @PostConstruct
-    public void init() {
-        // Initialize with seed data
-        orderDetails.add(new OrderDetail(
-            1, 1, 1, 5, 1299.99f, "Bulk order"
-        ));
-        orderDetails.add(new OrderDetail(
-            2, 1, 2, 10, 49.99f, "Standard order"
-        ));
+    private final SeedData seedData;
+
+    @Autowired
+    public OrderDetailService(SeedData seedData) {
+        this.seedData = seedData;
+        this.orderDetails.addAll(seedData.getOrderDetails());
     }
 
     public List<OrderDetail> findAll() {

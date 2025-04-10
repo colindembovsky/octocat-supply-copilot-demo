@@ -11,25 +11,12 @@ import java.util.Optional;
 public class BranchService {
     private final List<Branch> branches = new ArrayList<>();
 
-    @PostConstruct
-    public void init() {
-        // Initialize with seed data
-        branches.add(new Branch(
-            1, 1, "Downtown Branch", 
-            "Main downtown location", 
-            "456 Market St", 
-            "Sarah Wilson", 
-            "swilson@octo.com", 
-            "555-0201"
-        ));
-        branches.add(new Branch(
-            2, 1, "Westside Branch", 
-            "Western district branch", 
-            "789 West Ave", 
-            "Robert Brown", 
-            "rbrown@octo.com", 
-            "555-0202"
-        ));
+    private final SeedData seedData;
+
+    @Autowired
+    public BranchService(SeedData seedData) {
+        this.seedData = seedData;
+        this.branches.addAll(seedData.getBranches());
     }
 
     public List<Branch> findAll() {

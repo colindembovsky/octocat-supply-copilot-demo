@@ -2,6 +2,7 @@ package com.github.av2.api.service;
 
 import com.github.av2.api.model.Supplier;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,18 +11,12 @@ import java.util.Optional;
 @Service
 public class SupplierService {
     private final List<Supplier> suppliers = new ArrayList<>();
+    private final SeedData seedData;
 
-    @PostConstruct
-    public void init() {
-        // Initialize with seed data
-        suppliers.add(new Supplier(
-            1, "CircuitCore Labs", "Leading technology supplier",
-            "John Smith", "john@circuitcorelabs.co", "555-0101"
-        ));
-        suppliers.add(new Supplier(
-            2, "ConnectSphere", "Advanced tech products supplier",
-            "Jane Doe", "jane@connectsphere.com", "555-0102"
-        ));
+    @Autowired
+    public SupplierService(SeedData seedData) {
+        this.seedData = seedData;
+        this.suppliers.addAll(seedData.getSuppliers());
     }
 
     public List<Supplier> findAll() {

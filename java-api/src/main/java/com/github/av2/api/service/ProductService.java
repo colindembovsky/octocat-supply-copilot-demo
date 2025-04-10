@@ -2,6 +2,7 @@ package com.github.av2.api.service;
 
 import com.github.av2.api.model.Product;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,18 +11,12 @@ import java.util.Optional;
 @Service
 public class ProductService {
     private final List<Product> products = new ArrayList<>();
+    private final SeedData seedData;
 
-    @PostConstruct
-    public void init() {
-        // Initialize with seed data
-        products.add(new Product(
-            1, 1, "PowerTool Pro X1", "High-performance powertool",
-            1299.99f, "PWR-001", "piece", "powertool.png"
-        ));
-        products.add(new Product(
-            2, 1, "Webcam Pro", "Ergonomic webcam",
-            49.99f, "WEB-001", "piece", "webcam.png"
-        ));
+    @Autowired
+    public ProductService(SeedData seedData) {
+        this.seedData = seedData;
+        this.products.addAll(seedData.getProducts());
     }
 
     public List<Product> findAll() {

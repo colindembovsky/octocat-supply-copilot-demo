@@ -11,7 +11,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
             .info(new Info()
-                .title("Express API with Swagger")
+                .title("Java API with Swagger")
                 .version("1.0.0")
                 .description("REST API documentation using Swagger/OpenAPI"));
     }

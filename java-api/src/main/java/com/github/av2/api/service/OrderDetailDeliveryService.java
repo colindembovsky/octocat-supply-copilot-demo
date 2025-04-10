@@ -11,15 +11,12 @@ import java.util.Optional;
 public class OrderDetailDeliveryService {
     private final List<OrderDetailDelivery> orderDetailDeliveries = new ArrayList<>();
 
-    @PostConstruct
-    public void init() {
-        // Initialize with seed data
-        orderDetailDeliveries.add(new OrderDetailDelivery(
-            1, 1, 3, "scheduled", "2024-04-15", "First batch"
-        ));
-        orderDetailDeliveries.add(new OrderDetailDelivery(
-            2, 1, 2, "in-transit", "2024-04-16", "Second batch"
-        ));
+    private final SeedData seedData;
+
+    @Autowired
+    public OrderService(SeedData seedData) {
+        this.seedData = seedData;
+        this.orderDetailDeliveries.addAll(seedData.getOrderDetailDeliveries());
     }
 
     public List<OrderDetailDelivery> findAll() {
