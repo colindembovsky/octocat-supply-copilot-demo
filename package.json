@@ -4,16 +4,14 @@
     "description": "OctoCAT Supply Chain Management System",
     "private": true,
     "workspaces": [
-      "api",
       "frontend"
     ],
     "scripts": {
-      "build": "npm run build --workspaces",
-      "start": "npm run start:install --workspace=api",
+      "build": "concurrently \"cd api && mvn clean package\" \"npm run build --workspace=frontend\"",
       "dev:api": "cd api && mvn spring-boot:run",
       "dev:frontend": "npm run dev --workspace=frontend",
       "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
-      "test": "npm run test --workspaces",
+      "test": "concurrently \"cd api && mvn test\" \"npm run test --workspace=frontend\"",
       "lint": "npm run lint --workspace=frontend"
     },
     "devDependencies": {
@@ -23,4 +21,4 @@
     "engines": {
       "node": ">=18"
     }
-  }
+}

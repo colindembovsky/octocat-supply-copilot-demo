@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI apiInfo() {
         return new OpenAPI()
-            .info(new Info()
-                .title("Java API with Swagger")
-                .version("1.0.0")
-                .description("REST API documentation using Swagger/OpenAPI"));
+                .info(new Info()
+                        .title("OctoCAT Supply Chain Management API")
+                        .description("REST API for managing the OctoCAT supply chain")
+                        .version("1.0.0"));
     }
 }
