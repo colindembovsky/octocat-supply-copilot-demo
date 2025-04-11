@@ -18,8 +18,9 @@
     <description>Java implementation of the AV2 API</description>
     
     <properties>
-        <java.version>21</java.version>
+        <java.version>23</java.version>
         <lombok.version>1.18.30</lombok.version>
+        <argLine>-Dnet.bytebuddy.experimental=true</argLine>
     </properties>
     
     <dependencies>
