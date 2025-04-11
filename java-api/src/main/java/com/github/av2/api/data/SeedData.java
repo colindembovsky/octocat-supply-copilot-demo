@@ -59,8 +59,9 @@ public class SeedData {
     }
 
     private void initOrders() {
-        orders.add(new Order(1, 1, "Q1 Tech Supply", "Quarterly technology refresh", "pending", new Date()));
-        orders.add(new Order(2, 2, "Office Supplies Restock", "Monthly office supplies restock", "processing", new Date()));
+        String now = new Date().toString();
+        orders.add(new Order(1, 1, now, "pending", "Quarterly technology refresh"));
+        orders.add(new Order(2, 2, now, "processing", "Monthly office supplies restock"));
     }
 
     private void initOrderDetails() {
@@ -70,16 +71,18 @@ public class SeedData {
     }
 
     private void initDeliveries() {
-        deliveries.add(new Delivery(1, 1, "Tech Equipment Delivery", "Delivery of tech equipment", 
-            "pending", new Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000)));
-        deliveries.add(new Delivery(2, 2, "Office Supplies Delivery", "Regular office tech supplies delivery",
-            "in-transit", new Date(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000)));
+        String date1 = new Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000).toString();
+        String date2 = new Date(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000).toString();
+        
+        deliveries.add(new Delivery(1, 1, "pending", date1, "Delivery of tech equipment"));
+        deliveries.add(new Delivery(2, 2, "in-transit", date2, "Standard delivery"));
     }
 
     private void initOrderDetailDeliveries() {
-        orderDetailDeliveries.add(new OrderDetailDelivery(1, 1, 1, 5, "Delivery batch"));
-        orderDetailDeliveries.add(new OrderDetailDelivery(2, 2, 1, 5, "Delivery batch"));
-        orderDetailDeliveries.add(new OrderDetailDelivery(3, 3, 2, 20, "Delivery"));
+        String now = new Date().toString();
+        orderDetailDeliveries.add(new OrderDetailDelivery(1, 1, 5, "pending", now, "Delivery batch"));
+        orderDetailDeliveries.add(new OrderDetailDelivery(2, 2, 5, "pending", now, "Delivery batch"));
+        orderDetailDeliveries.add(new OrderDetailDelivery(3, 3, 20, "in-transit", now, "Delivery"));
     }
 
     // Getters for the collections

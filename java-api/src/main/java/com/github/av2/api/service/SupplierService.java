@@ -1,6 +1,7 @@
 package com.github.av2.api.service;
 
 import com.github.av2.api.model.Supplier;
+import com.github.av2.api.data.SeedData;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.annotation.PostConstruct;

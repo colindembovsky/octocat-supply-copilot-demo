@@ -32,6 +32,26 @@ This demo app can be used to show a number of Copilot features:
 
   ![Switch to Insiders](./vscode-switch-to-insiders.png)
 
+### **Required Tools for Local Demos**
+
+> If you run the demos inside a Codespace, you won't need to do any of this since the Codespace will be configured.
+
+To run the demos locally, you will have to have some tools installed on your machine.
+
+For all "language variants" of the demo you will need:
+- NodeJS 18+ (I'd recommend that you [install nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script) to manage your NodeJS)
+- Docker Desktop (or [Podman](https://podman.io/))
+
+#### Additional Tools per language
+
+- Java
+  - Java 21+
+  - Maven
+- Python
+  - Python 3.8+
+- DotNet
+  - DotNet Core 9+
+
 ### **Building, Running and Debugging the code**
 
 Refer to [the build docs](./build.md).

@@ -1,7 +1,9 @@
 package com.github.av2.api.service;
 
 import com.github.av2.api.model.OrderDetailDelivery;
+import com.github.av2.api.data.SeedData;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ public class OrderDetailDeliveryService {
     private final SeedData seedData;
 
     @Autowired
-    public OrderService(SeedData seedData) {
+    public OrderDetailDeliveryService(SeedData seedData) {
         this.seedData = seedData;
         this.orderDetailDeliveries.addAll(seedData.getOrderDetailDeliveries());
     }
