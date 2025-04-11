@@ -17,10 +17,10 @@
         {
             "label": "Build API",
             "type": "shell",
-            "command": "npm",
-            "args": ["run", "build", "--workspace=api"],
+            "command": "mvn",
+            "args": ["clean", "package"],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/api"
             },
             "presentation": {
                 "reveal": "always",
