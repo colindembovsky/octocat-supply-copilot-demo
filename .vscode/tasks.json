@@ -9,23 +9,6 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "Build API",
-            "type": "shell",
-            "command": "mvn",
-            "args": ["clean", "package"],
-            "options": {
-                "cwd": "${workspaceFolder}/api"
-            },
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
             "problemMatcher": ["$tsc"]
         },
         {
