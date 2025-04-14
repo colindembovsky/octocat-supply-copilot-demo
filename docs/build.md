@@ -8,6 +8,7 @@ This guide provides instructions for building, running, and testing the OctoCAT 
 - npm (latest version recommended)
 - Docker/Podman (optional, for containerization)
 
+<<<<<<< HEAD
 ### Additional prerequisited for Python API
 
 - Python 3.12 (or later)
@@ -24,6 +25,8 @@ This guide provides instructions for building, running, and testing the OctoCAT 
    ```bash
    npm install
    ```
+=======
+>>>>>>> c36b759 (fix: remove outdated instruction for code compilation verification)
 
 ## Building the Application
 
