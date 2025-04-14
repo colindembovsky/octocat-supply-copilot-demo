@@ -36,7 +36,7 @@ You can build the entire application or its individual components using the foll
 npm run build
 
 # Build only the API component
-npm run build --workspace=api
+cd api && mvn clean compile
 
 # Build only the Frontend component
 npm run build --workspace=frontend
@@ -89,8 +89,8 @@ This will start both the API and Frontend in development mode with the integrate
 # Run all tests across all workspaces
 npm run test
 
-# Run tests for a specific workspace
-npm run test --workspace=api
+# Run tests for the API
+cd api && mvn test
 ```
 
 ### Linting
