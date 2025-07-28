@@ -5,6 +5,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Products from './components/entity/product/Products';
 import Login from './components/Login';
+import CreateAccount from './components/CreateAccount';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import AdminProducts from './components/admin/AdminProducts';
@@ -24,6 +25,7 @@ function ThemedApp() {
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/create-account" element={<CreateAccount />} />
             <Route path="/admin/products" element={<AdminProducts />} />
           </Routes>
         </main>
